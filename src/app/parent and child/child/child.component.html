@@ -1,0 +1,20 @@
+<!-- <p>child works!</p> -->
+<div class="card">
+    <div class="card-header">
+        <h6>Child Component</h6>
+    </div>
+    <div class="card-body">
+        <p>Text from parent: <b>{{parentString}}</b></p>
+        <hr>
+        <p>Enter the text to send it to parent:
+            <input type="text" [(ngModel)]="childText" (input)="updateParent()">
+        </p>
+
+        <hr>
+        <p>Enter the item to add to the list in parent Component:
+            <input type="text" [(ngModel)]="listItem">
+            <button class="btn btn-primary" (click)="AddToList()">Add</button>
+        </p>
+        <hr>
+    </div>
+</div>

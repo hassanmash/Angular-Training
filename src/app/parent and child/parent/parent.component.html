@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-header">
+        <h6>Parent Component</h6>
+    </div>
+    <div class="card-body">
+        <p>Enter text to pass to child:
+            <input type="text" [(ngModel)]="parentText">
+        </p>
+        <hr>
+        <p>String from the child: <b>{{childString}}</b></p>
+        <hr>
+        <p>Lists of data are:</p>
+        <ul>
+            <li *ngFor="let item of listOfData"> {{item}} </li>
+        </ul>
+        <hr>
+        <app-child [parentString]="parentText" (sendtext)="HandleChildString($event)" (addItemToList)="HandleAddToList($event)"></app-child>
+    </div>
+</div>

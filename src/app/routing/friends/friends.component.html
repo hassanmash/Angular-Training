@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-header">
+        <h6>Friends Component</h6>
+    </div>
+    <div class="card-body">
+        <p>List of friends:</p>
+        <ul>
+            <li *ngFor="let item of FriendList"> {{item}} <button class="btn btn-danger" [routerLink]="'friendInfo/'+item">Edit name</button> <br><br></li>
+        </ul>
+    </div>
+    <hr>
+    <router-outlet></router-outlet>
+</div>

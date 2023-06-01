@@ -1,0 +1,24 @@
+<div>
+    <p>Enter your string:
+        <input type="text" [(ngModel)]="enteredString"> &nbsp;
+        <button (click)="onClick()" class="btn btn-warning">Enter</button> &nbsp;
+        <button (click)="onCloseStream()" class="btn btn-danger">Close stream</button>
+    </p>
+</div>
+
+<ng-content select="[partone]"></ng-content>
+<br><hr>
+<div>
+    <p>Enter Username: 
+        <input type="text" #enteredUsername>
+        <button class="btn btn-primary m-2" (click)="addToStream(enteredUsername.value)">Add</button>
+    </p>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <ng-content select="[comp21]"></ng-content>
+    </div>
+    <div class="col-md-6">
+        <ng-content select="[comp22]"></ng-content>
+    </div>
+</div>
