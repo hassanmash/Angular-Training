@@ -1,0 +1,26 @@
+<hr>
+<h4>Reactive Forms</h4>
+<form [formGroup]="rLoginForm" (ngSubmit)="rLoginSubmit()" class="form-group">
+    <input type="text" placeholder="Enter Username" formControlName="user" id="rUsername" class="form-control">
+    <span style="color: red;" id="rUsernameError" *ngIf="user && user.invalid && user.touched">User field is invalid. <i>ex: 'example@example.com'</i></span>
+    <br>
+    <input type="password" placeholder="Enter Password" formControlName="password" id="rPassword" class="form-control">
+    <span style="color: red;" id="rPasswordError" *ngIf="password && password.invalid && password.touched">Password field requires minimum 8 characters which has atleast 1 Capital and small alphabets and number</span>
+    <br>
+    <button class="btn btn-primary" [disabled]="rLoginForm.invalid">Submit</button>
+</form>
+
+<hr>
+<h4>Template-driven Forms</h4>
+<form #tLoginForm="ngForm" (ngSubmit)="loginUser(tLoginForm.value)">
+    <input type="text" placeholder="Enter Email" #email="ngModel" class="form-control" name="email" ngModel required email>
+    <span style="color: red;" *ngIf="email.invalid && email.touched">Email field is invalid. <i>ex: 'example@example.com'</i></span>
+    <br>
+    <input type="text" placeholder="Enter Name" #name="ngModel" class="form-control" name="name" ngModel required>
+    <span style="color: red;" *ngIf="name.invalid && name.touched">Name field is invalid</span>
+    <br>
+    <input type="password" placeholder="Enter Password" #tpassword="ngModel" class="form-control" name="password" ngModel required minlength="8" appCustomValidator>
+    <span style="color: red;" *ngIf="tpassword.invalid && tpassword.touched">Password field requires minimum 8 characters which has atleast 1 Capital and small alphabets and number</span>
+    <br>
+    <button class="btn btn-primary" [disabled]="tLoginForm.invalid">Submit</button>
+</form>

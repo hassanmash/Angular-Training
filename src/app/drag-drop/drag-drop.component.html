@@ -1,0 +1,51 @@
+<!-- <cdk-virtual-scroll-viewport class="example-viewport" [itemSize]="18 * 3" #virtualScroller id="cdkscroll">
+    <div class="example-container">
+        <div
+          cdkDropList
+          [cdkDropListData]="items"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *cdkVirtualFor="let item of items; templateCacheSize: 0" cdkDrag #itemRow [id]="item"
+            (cdkDragDropped)="dragclick(itemRow.id)">{{item}}</div>
+        </div>
+    </div>
+</cdk-virtual-scroll-viewport> -->
+
+<!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport"
+          cdkDropList
+          [cdkDropListData]="items"
+          cdkDropListAutoScrollDisabled="false"
+          (cdkDropListDropped)="drop($event)">
+    <div class="example-container">
+        <div class="example-box" *ngFor="let item of items" cdkDrag>{{item}}</div>
+    </div>
+</cdk-virtual-scroll-viewport> -->
+
+<h2>NGX scroller</h2>
+<button (click)="capitlise()">clickckk</button>
+<button (click)="debounceEx()">debounce</button>
+{{ debounceName }}
+<!-- <virtual-scroller #scroll cdkDropList id="scroll"
+[cdkDropListData]="items"
+[items]="items"
+class="example-list"
+(cdkDropListDropped)="dropngx($event)">
+        <div class="example-box" *ngFor="let item of scroll.viewPortItems" cdkDrag cdkDragLockAxis="y">{{item}}</div>
+</virtual-scroller> -->
+
+
+<!-- <virtual-scroller #scroll id="vsScroll"
+[items]="items">
+    <div cdkDropList
+    [cdkDropListData]="scroll.viewPortItems"
+    class="example-list"
+    (cdkDropListDropped)="dropngx($event)">
+        <div class="example-box" *ngFor="let item of scroll.viewPortItems" cdkDrag>{{item}}</div>
+    </div>
+</virtual-scroller> -->
+
+<input type="radio" name="sample" value="radio1" (change)="onChange($event)" checked><br>
+<input type="text" [disabled]="textdisable"><br>
+<input type="radio" name="sample" value="radio2" (change)="onChange($event)"><br>
+<input type="radio" name="sample" value="radio3" (change)="onChange($event)">
+<br>
