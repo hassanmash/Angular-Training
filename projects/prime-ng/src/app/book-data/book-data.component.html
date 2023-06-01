@@ -1,0 +1,44 @@
+<h4>Books table</h4>
+<p-table [value]="books">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Price</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-book>
+        <tr>
+            <td>{{ book.name }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.price }}</td>
+        </tr>
+    </ng-template>
+</p-table>
+<hr>
+<h4>Posts Table</h4>
+<button class="btn btn-warning mb-3" (click)="loadPosts()">Load Data</button>
+<div class="card">
+    <p-table 
+        [value]="posts" 
+        [paginator]="true" 
+        [rows]="10"
+        [showCurrentPageReport]="true" 
+        [rowsPerPageOptions]="[10,25,50]"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id">ID <p-sortIcon field="id"></p-sortIcon></th>
+                <th pSortableColumn="albumid">Album ID <p-sortIcon field="albumid"></p-sortIcon></th>
+                <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-post>
+            <tr>
+                <td>{{ post.id }}</td>
+                <td>{{ post.albumId }}</td>
+                <td>{{ post.title }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

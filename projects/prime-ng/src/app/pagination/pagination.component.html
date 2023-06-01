@@ -1,0 +1,23 @@
+<div class="grid row align-items-center">
+  <div class="col-1 mr-0">
+    <p-button icon="pi pi-refresh" (onClick)="refresh()"></p-button>
+  </div>
+  <div class="col-10">
+    <p-paginator
+      class="p-paginator"
+      [first]="first"
+      [rows]="1"
+      [totalRecords]="totalRecords"
+      (onPageChange)="onPageChange($event)"
+      [showJumpToPageDropdown]="true"
+      [showPageLinks]="false"
+    ></p-paginator>
+  </div>
+</div>
+<div style="display: flex; justify-content: center;" class="image-gallery align-items-center">
+  <img
+    src="https://primefaces.org/cdn/primeng/images/demo/nature/nature{{
+      first + 1
+    }}.jpg"
+  />
+</div>

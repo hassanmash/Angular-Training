@@ -1,0 +1,55 @@
+<p-pickList
+    *ngIf="!doneSelection"
+    [source]="sourceProducts"
+    [target]="targetProducts"
+    sourceHeader="Available"
+    targetHeader="Selected"
+    [dragdrop]="true"
+    [responsive]="true"
+    [stripedRows]="true"
+    [sourceStyle]="{'height':'300px'}"
+    [targetStyle]="{'height':'300px'}"
+    filterBy="name"
+    sourceFilterPlaceholder="Search by name"
+    targetFilterPlaceholder="Search by name">
+    <ng-template let-product pTemplate="item">
+        <div class="product-item">
+            <div class="image-container">
+                <img class="product-image" [src]="'https://primefaces.org/cdn/primeng/images/demo/product/'+product.image" alt="Blue T-Shirt">
+            </div>
+            <div class="product-list-detail">
+                <h5 class="mb-2">{{product.name}}</h5>
+                <i class="pi pi-tag product-category-icon"></i>
+                <span class="product-category">{{product.category}}</span>
+            </div>
+            <div class="product-list-action">
+                <h6 class="mb-2">{{product.price | currency}}</h6>
+                <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
+            </div>
+        </div>
+    </ng-template>
+</p-pickList>
+<br>
+<p-button class="mt-3" (onClick)="ShowSelected()">{{ !doneSelection? 'Select Products': 'Re-Select Products' }}</p-button>
+<div *ngIf="doneSelection">
+    <div *ngIf="targetProducts.length else noitems">
+        <div class="product-item" *ngFor="let product of targetProducts">
+            <div class="image-container">
+                <img class="product-image" [src]="'https://primefaces.org/cdn/primeng/images/demo/product/'+product.image" alt="Blue T-Shirt">
+            </div>
+            <div class="product-list-detail">
+                <h5 class="mb-2">{{product.name}}</h5>
+                <i class="pi pi-tag product-category-icon"></i>
+                <span class="product-category">{{product.category}}</span>
+            </div>
+            <div class="product-list-action">
+                <h6 class="mb-2">{{product.price | currency}}</h6>
+                <span [class]="'product-badge status-'+ product.inventoryStatus?.toLowerCase()">{{product.inventoryStatus}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #noitems>
+    <br>
+    <p style="color: red;"><b>No items selected</b></p>
+</ng-template>
